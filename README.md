@@ -173,7 +173,7 @@ int main(void)
 }
 ```
 ```
-## **lldb**
+### **Відладник lldb**
 Process 59689 launched: '/home/progalaba/lab11/dist/main.bin' (x86_64)
 Process 59689 stopped
 * thread #1, name = 'main.bin', stop reason = breakpoint 1.1
