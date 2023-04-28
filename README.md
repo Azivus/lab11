@@ -89,8 +89,11 @@ int filter_arr(int *arr_const, int qua_elements, int num)
 ### **Вміст файлу lib.h**
 ```
 int filter_arr(int a[], int b, int i);
+```
 
-test.c
+### **Вміст файлу test.c**
+
+```
 #include "../src/lib.h"
 #include <stdlib.h>
 #include <check.h>
