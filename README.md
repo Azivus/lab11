@@ -172,8 +172,9 @@ int main(void)
 	return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 ```
-```
+
 ### **Відладник lldb**
+```
 Process 59689 launched: '/home/progalaba/lab11/dist/main.bin' (x86_64)
 Process 59689 stopped
 * thread #1, name = 'main.bin', stop reason = breakpoint 1.1
