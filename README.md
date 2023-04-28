@@ -8,7 +8,7 @@
 ## сновна частина:
 
 ### **Вміст файлу main.c**
-'''
+```
 #include "lib.h"
 
 int main()
@@ -21,7 +21,7 @@ int main()
 
     return 0;
 }
-''' 
+``` 
 lib.c
 
 #include <stdio.h>
