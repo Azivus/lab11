@@ -1,8 +1,8 @@
 Лабораторна робота 11
 
-Панкеєв Владислав Олексійович 922-Б
+Панкеєв Владислав Олексійович 922-Б 
 
-11.Дано масив з N цілих чисел. Визначити, чи є в масиві елементи, що повторюються; якщо такі є, то створити масив, в якому вказати, скільки разів які елементи повторюються.
+11.Дано масив з N цілих чисел. Визначити, чи є в масиві елементи, що повторюються; якщо такі є, то створити масив, в якому вказати, скільки разів які елементи повторюються. 
 Таким чином, в результуючому масиві кожен непарний елемент - число, що повторюються; кожен парний елемент - кількість повторювань.
 
 Основна частина:
@@ -12,11 +12,11 @@
 
 int main()
 {
-    int arr_const[] = {23, 89, 89, 23, 67, 89, 0, 37, 37};
-int *arr = arr_const;
-int qua_elemnts = 8;
-
-filter_arr(arr, qua_elemnts,0);
+    	int arr_const[] = {23, 89, 89, 23, 67, 89, 0, 37, 37};
+	int *arr = arr_const;
+	int qua_elemnts = 8;
+	
+	filter_arr(arr, qua_elemnts,0);
 
     return 0;
 }
@@ -28,61 +28,61 @@ lib.c
 
 int filter_arr(int *arr_const, int qua_elements, int num)
 {
-int *arr = 0;
-int elements = 0;
-int qua_repeat = 0;
-unsigned long int add_byte_in_arr = 0;
-int index_elements_in_arr = 0;
-int dont_repeat = 0;
-int error = 0;
+	int *arr = 0;
+	int elements = 0;
+	int qua_repeat = 0;
+	unsigned long int add_byte_in_arr = 0;
+	int index_elements_in_arr = 0;
+	int dont_repeat = 0;
+	int error = 0;
 
-for (int i = 0; i <= qua_elements; i++) {
-elements = *(arr_const + i);
-qua_repeat = 0;
-error = 0;
+	for (int i = 0; i <= qua_elements; i++) {
+		elements = *(arr_const + i);
+		qua_repeat = 0;
+		error = 0;
 
-if (i > 0) {
-for (dont_repeat = 0; dont_repeat < i; dont_repeat++) {
-if (*(arr_const + dont_repeat) == elements) {
-error = 1;
-break;
-}
-}
-}
+		if (i > 0) {
+			for (dont_repeat = 0; dont_repeat < i; dont_repeat++) {
+				if (*(arr_const + dont_repeat) == elements) {
+					error = 1;
+					break;
+				}
+			}
+		}
 
-if (elements % 2 == 0) {
-error = 1;
-}
+		if (elements % 2 == 0) {
+			error = 1;
+		}
 
-if (error == 0) {
-for (int n = i; n <= qua_elements; n++) {
-if (elements == *(arr_const + n)) {
-qua_repeat++;
-}
-}
-}
+		if (error == 0) {
+			for (int n = i; n <= qua_elements; n++) {
+				if (elements == *(arr_const + n)) {
+					qua_repeat++;
+				}
+			}
+		}
 
-if (qua_repeat > 0 && qua_repeat % 2 == 0) {
-add_byte_in_arr += 2;
+		if (qua_repeat > 0 && qua_repeat % 2 == 0) {
+			add_byte_in_arr += 2;
 
-arr = realloc(arr, sizeof(int) * add_byte_in_arr);
-*(arr + index_elements_in_arr) = *(arr_const + i);
-*(arr + index_elements_in_arr + 1) = qua_repeat;
+			arr = realloc(arr, sizeof(int) * add_byte_in_arr);
+			*(arr + index_elements_in_arr) = *(arr_const + i);
+			*(arr + index_elements_in_arr + 1) = qua_repeat;
 
-index_elements_in_arr += 2;
-}
-}
+			index_elements_in_arr += 2;
+		}
+	}
 
-if (arr == 0) {
-elements = 0;
-} else {
-elements = *(arr + num);
-}
+	if (arr == 0) {
+		elements = 0;
+	} else {
+		elements = *(arr + num);
+	}
 
-free(arr);
-arr = NULL;
+	free(arr);
+	arr = NULL;
 
-return elements;
+	return elements;
 }
 
 lib.h
@@ -96,42 +96,42 @@ test.c
 
 START_TEST(test_filter_arr_standart)
 {
-int test_arr[] = {23,89,89,23,67,89,0,37,37};
-int *arr_test = test_arr;
-int qua_elemnts_test_arr = 8;
-int expected_test_arr[] = {23,2,37,2};
-int *arr_expected = expected_test_arr;
-int qua_elemnts_expected_arr = 3;
-
-for(int i = 0; i <= qua_elemnts_expected_arr;i++)
-{
-int actual_result = filter_arr(arr_test, qua_elemnts_test_arr,i);
-ck_assert_int_eq(*(arr_expected + i), actual_result);
-}
+	int test_arr[] = {23,89,89,23,67,89,0,37,37};
+	int *arr_test = test_arr;
+	int qua_elemnts_test_arr = 8; 
+	int expected_test_arr[] = {23,2,37,2};
+	int *arr_expected = expected_test_arr;
+	int qua_elemnts_expected_arr = 3;
+	 
+	for(int i = 0; i <= qua_elemnts_expected_arr;i++)
+	{
+		int actual_result = filter_arr(arr_test, qua_elemnts_test_arr,i);
+		ck_assert_int_eq(*(arr_expected + i), actual_result);
+	}	
 }
 END_TEST
 
 START_TEST(test_filter_arr_parni)
 {
-int test_arr[] = {24,54,88,24,66,88,88,36,36};
-int *arr_test = test_arr;
-int qua_elemnts_test_arr = 8;
-int expected_test_result = 0;
-int actual_test_result = filter_arr(arr_test, qua_elemnts_test_arr,0);
-
-ck_assert_int_eq(expected_test_result, actual_test_result);
+	int test_arr[] = {24,54,88,24,66,88,88,36,36};
+	int *arr_test = test_arr;
+	int qua_elemnts_test_arr = 8; 
+	int expected_test_result = 0;
+	int actual_test_result = filter_arr(arr_test, qua_elemnts_test_arr,0);
+	
+	ck_assert_int_eq(expected_test_result, actual_test_result);		
 }
 END_TEST
 
 START_TEST(test_filter_arr_zero)
 {
-int test_arr[] = {0,0,0};
-int *arr_test = test_arr;
-int qua_elemnts_test_arr = 2;
-int expected_test_result = 0;
-int actual_test_result = filter_arr(arr_test, qua_elemnts_test_arr,0);
-
-ck_assert_int_eq(expected_test_result, actual_test_result);
+	int test_arr[] = {0,0,0};
+	int *arr_test = test_arr;
+	int qua_elemnts_test_arr = 2; 
+	int expected_test_result = 0;
+	int actual_test_result = filter_arr(arr_test, qua_elemnts_test_arr,0);
+	
+	ck_assert_int_eq(expected_test_result, actual_test_result);		
 }
 END_TEST
 
@@ -139,36 +139,36 @@ END_TEST
 
 Suite *lab_test_suite(void)
 {
-Suite *s;
-TCase *tc_filter_arr;
+	Suite *s;
+	TCase *tc_filter_arr;
 
-s = suite_create("lab11");
+	s = suite_create("lab11");
 
-tc_filter_arr = tcase_create("filter_arr");
+	tc_filter_arr = tcase_create("filter_arr");
 
-tcase_add_test(tc_filter_arr, test_filter_arr_standart);
-tcase_add_test(tc_filter_arr, test_filter_arr_parni);
-tcase_add_test(tc_filter_arr, test_filter_arr_zero);
+	tcase_add_test(tc_filter_arr, test_filter_arr_standart);
+	tcase_add_test(tc_filter_arr, test_filter_arr_parni);
+	tcase_add_test(tc_filter_arr, test_filter_arr_zero);
 
-suite_add_tcase(s, tc_filter_arr);
-
-return s;
+	suite_add_tcase(s, tc_filter_arr);
+	
+	return s;
 }
 
 int main(void)
 {
-int number_failed;
-Suite *s;
-SRunner *sr;
+	int number_failed;
+	Suite *s;
+	SRunner *sr;
 
-s = lab_test_suite();
-sr = srunner_create(s);
+	s = lab_test_suite();
+	sr = srunner_create(s);
 
-srunner_run_all(sr, CK_NORMAL);
-number_failed = srunner_ntests_failed(sr);
-srunner_free(sr);
+	srunner_run_all(sr, CK_NORMAL);
+	number_failed = srunner_ntests_failed(sr);
+	srunner_free(sr);
 
-return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
+	return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 
  
@@ -192,7 +192,7 @@ Process 59689 stopped
 (int) $2 = 37
 (lldb) p *(arr+3)
 (int) $3 = 2
-(lldb)
+(lldb) 
 
 ----------------------------------------------------------------------------
 
@@ -210,7 +210,6 @@ TOTAL                                                 27                 0   100
 ----------------------------------------------------------------------------
 
 Дослідження витоків
-
 
 ==40989== Memcheck, a memory error detector
 ==40989== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
@@ -230,7 +229,7 @@ TOTAL                                                 27                 0   100
 ----------------------------------------------------------------------------
 
 Структура проекту лабораторної роботи:
-   
+   
 ├── Doxyfile
 ├── Makefile
 ├── README.md
@@ -240,6 +239,3 @@ TOTAL                                                 27                 0   100
     ├── lib.c
     ├── lib.h
     └── main.c
-
-
-
