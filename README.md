@@ -171,9 +171,9 @@ int main(void)
 
 	return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
-
- 
-lldb
+```
+```
+## **lldb**
 Process 59689 launched: '/home/progalaba/lab11/dist/main.bin' (x86_64)
 Process 59689 stopped
 * thread #1, name = 'main.bin', stop reason = breakpoint 1.1
@@ -194,10 +194,9 @@ Process 59689 stopped
 (lldb) p *(arr+3)
 (int) $3 = 2
 (lldb) 
-
-----------------------------------------------------------------------------
-
-Результат тесту та покриття коду
+```
+### **Результат тесту та покриття коду**
+```
 Running suite(s): lab11
 100%: Checks: 3, Failures: 0, Errors: 0
 llvm-profdata merge -sparse dist/test.profraw -o dist/test.profdata
@@ -209,8 +208,10 @@ Filename                                         Regions    Missed Regions     C
 TOTAL                                                 27                 0   100.00%           1                 0   100.00%          47                 0   100.00%          22                 0   100.00%
 
 ----------------------------------------------------------------------------
+```
 
-Дослідження витоків
+### **Дослідження витоків**
+```
 
 ==40989== Memcheck, a memory error detector
 ==40989== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
@@ -227,10 +228,11 @@ TOTAL                                                 27                 0   100
 ==40989==
 ==40989== For lists of detected and suppressed errors, rerun with: -s
 ==40989== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
 ----------------------------------------------------------------------------
 
-Структура проекту лабораторної роботи:
-   
+### **Структура проекту лабораторної роботи:**
+```   
 ├── Doxyfile
 ├── Makefile
 ├── README.md
@@ -240,3 +242,4 @@ TOTAL                                                 27                 0   100
     ├── lib.c
     ├── lib.h
     └── main.c
+```
