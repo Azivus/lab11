@@ -22,8 +22,8 @@ int main()
     return 0;
 }
 ``` 
-lib.c
-
+### **Вміст файлу lib.c**
+```
 #include <stdio.h>
 #include <malloc.h>
 
@@ -85,9 +85,9 @@ int filter_arr(int *arr_const, int qua_elements, int num)
 
 	return elements;
 }
-
-lib.h
-
+```
+### **Вміст файлу lib.h**
+```
 int filter_arr(int a[], int b, int i);
 
 test.c
