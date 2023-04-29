@@ -8,7 +8,7 @@
 ## сновна частина:
 
 ### **Вміст файлу main.c**
-```
+```c
 #include "lib.h"
 
 int main()
@@ -22,8 +22,10 @@ int main()
     return 0;
 }
 ``` 
+
 ### **Вміст файлу lib.c**
-```
+
+```c
 #include <stdio.h>
 #include <malloc.h>
 
@@ -87,13 +89,13 @@ int filter_arr(int *arr_const, int qua_elements, int num)
 }
 ```
 ### **Вміст файлу lib.h**
-```
+```c
 int filter_arr(int a[], int b, int i);
 ```
 
 ### **Вміст файлу test.c**
 
-```
+```c
 #include "../src/lib.h"
 #include <stdlib.h>
 #include <check.h>
